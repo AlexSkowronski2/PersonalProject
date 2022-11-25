@@ -22,8 +22,27 @@ def execute_sql_query(query):
 def index():
     return current_app.send_static_file("index.html")
 
+# prints the results of main table in its raw form, want to add stuff like muscle names not ids
 @app.route("/exercises", methods=["GET"])
 def exercises():
     query = "SELECT * FROM exercises;"
+    response = execute_sql_query(query)
+    return jsonify(exercises = response)
+
+@app.route("/movements", methods=["GET"])
+def movements():
+    query = "SELECT * FROM movementpattern;"
+    response = execute_sql_query(query)
+    return jsonify(exercises = response)
+
+@app.route("/equipment", methods=["GET"])
+def equipment():
+    query = "SELECT * FROM equipment;"
+    response = execute_sql_query(query)
+    return jsonify(exercises = response)
+
+@app.route("/muscles", methods=["GET"])
+def muscles():
+    query = "SELECT * FROM muscles;"
     response = execute_sql_query(query)
     return jsonify(exercises = response)

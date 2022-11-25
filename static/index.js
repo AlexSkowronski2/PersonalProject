@@ -21,7 +21,8 @@ function createExercise(exercise) {
   const exerciseWrapper = document.createElement("div");
   exerciseWrapper.innerHTML = `
     <p>
-        <a class="name" href=${exercise.url}>${exercise.name} </a>
+        <a class="name"> ${exercise.name} </a>
+        <span>(hi)</span>
     </p>`;
   exercises.append(exerciseWrapper);
 }
